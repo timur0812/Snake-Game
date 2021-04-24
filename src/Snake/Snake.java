@@ -21,7 +21,7 @@ public class Snake extends JPanel implements ActionListener {
     private boolean inGame = true;
     private String text = "";
 
-    public Snake(String s) {
+    public Snake() {
 
         snake.add(new Cell(10, 20, new Color(0,200,0)));
         snake.add(new Cell(9, 20, Color.GREEN));
@@ -180,6 +180,6 @@ public class Snake extends JPanel implements ActionListener {
 
         jFrame.setFocusable(true);
 
-        jFrame.add(new Snake("d"));
+        jFrame.add(new Snake());
     }
 }
