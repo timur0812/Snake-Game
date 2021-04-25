@@ -7,9 +7,9 @@ import java.util.ArrayList;
 
 
 public class Snake extends JPanel implements ActionListener {
-    private final int width = 40;
-    private final int height = 40;
-    private final int size = 10;
+    private final int WIDTH = 40;
+    private final int HEIGHT = 40;
+    private final int SIZE = 10;
     private ArrayList<Cell> snake = new ArrayList<>();
     private int appleX;
     private int appleY;
@@ -43,27 +43,27 @@ public class Snake extends JPanel implements ActionListener {
 
         if (inGame) {
             //Area
-            for (int i = 0; i < width; i++) {
-                for (int j = 0; j < height; j++) {
-                    if (i == 0 || j == 0 || i == width - 1 || j == height - 1) {
+            for (int i = 0; i < WIDTH; i++) {
+                for (int j = 0; j < HEIGHT; j++) {
+                    if (i == 0 || j == 0 || i == WIDTH - 1 || j == HEIGHT - 1) {
                         g.setColor(Color.ORANGE);
-                        g.fillRect(i * size, j * size, size, size);
+                        g.fillRect(i * SIZE, j * SIZE, SIZE, SIZE);
                     } else {
                         g.setColor(Color.BLACK);
-                        g.fillRect(i * size, j * size, size, size);
+                        g.fillRect(i * SIZE, j * SIZE, SIZE, SIZE);
                     }
                 }
             }
 
             //Apple
             g.setColor(Color.RED);
-            g.fillOval(appleX * size, appleY * size, size, size);
+            g.fillOval(appleX * SIZE, appleY * SIZE, SIZE, SIZE);
 
             //Snake
             g.setColor(Color.green);
             for (int i = 0; i < snake.size(); i++) {
                 g.setColor(snake.get(i).getColor());
-                g.fillRect(snake.get(i).getX() * size, snake.get(i).getY() * size, size, size);
+                g.fillRect(snake.get(i).getX() * SIZE, snake.get(i).getY() * SIZE, SIZE, SIZE);
             }
 
             //Score
@@ -132,7 +132,7 @@ public class Snake extends JPanel implements ActionListener {
     }
 
     private void checkCollisions() {
-        if (head.getX() == 0 || head.getY() == 0 || head.getX() == width - 1|| head.getY() == height - 1) {
+        if (head.getX() == 0 || head.getY() == 0 || head.getX() == WIDTH - 1|| head.getY() == HEIGHT - 1) {
             gameOver();
         }
 
