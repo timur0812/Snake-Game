@@ -15,11 +15,12 @@ public class Snake extends JPanel implements ActionListener {
     private int appleY;
     private static JFrame jFrame = new JFrame("Snake game");
     private String key;
-    private int score = 0;
+    private int score;
     private Cell head;
     private Timer timer;
     private boolean inGame = true;
     private String text = "";
+    private int delay;
 
     public Snake() {
 
@@ -30,10 +31,12 @@ public class Snake extends JPanel implements ActionListener {
         appleX = 20;
         appleY = 20;
 
+        delay = 130;
+
         key = "Right";
         head = snake.get(0);
 
-        timer = new Timer(130 - (score * 2), this);
+        timer = new Timer(delay, this);
         timer.start();
     }
 
@@ -116,11 +119,7 @@ public class Snake extends JPanel implements ActionListener {
 
             head = snake.get(0);
 
-        try {
-            Thread.sleep(130 - (score * 2));
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+            timer.setDelay(delay - (score * 2));
     }
 
     @Override
